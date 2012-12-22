@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension-point id="pl.zgora.uz.egt.core.algoritm" name="Algoritm Application" schema="schema/pl.zgora.uz.egt.core.algoritm.exsd"/>
+ <extension point = "org.eclipse.ui.popupMenus">
+      <viewerContribution
+        id="pl.zgora.uz.egt.core.vizualize"
+        targetID="org.eclipse.gmf.runtime.diagram.ui.DiagramEditorContextMenu">
+	    <action
+           class="pl.zgora.uz.egt.core.actions.ApplyAlgoritm"
+           icon="icons/algoritm.png"
+           id="pl.zgora.uz.egt.core.visualizationAction"
+           label="Apply Algoritm"
+           menubarPath="additions">	
+	    </action>
+       </viewerContribution>
+	 </extension>
+
+</plugin>

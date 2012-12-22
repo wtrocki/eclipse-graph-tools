@@ -1,0 +1,7 @@
+# Tracing options for the pl.zgora.uz.egt.diagram plug-in
+
+# Common issues
+pl.zgora.uz.egt.diagram/debug=false
+
+# Visual IDs
+pl.zgora.uz.egt.diagram/debug/visualID=false

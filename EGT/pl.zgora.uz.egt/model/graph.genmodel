@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="Autor: Wojciech Trocki (wtrocki@gmail.com)&#xD;&#xA;Licensed under EPL License."
+    modelDirectory="/pl.zgora.uz.egt/src" creationSubmenus="true" modelPluginID="pl.zgora.uz.egt"
+    templateDirectory="" redirection="" modelName="Graph" modelPluginClass="" editPluginClass="pl.zgora.uz.egt.edit.GraphEditPlugin"
+    editorPluginClass="pl.zgora.uz.egt.editor.GraphEditorPlugin" nonNLSMarkers="true"
+    rootImplementsInterface="" featureMapWrapperInterface="" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="5.0" copyrightFields="false" colorProviders="true" language=""
+    interfaceNamePattern="" classNamePattern="">
+  <foreignModel>graph.ecore</foreignModel>
+  <genPackages prefix="Egt" basePackage="pl.zgora.uz" disposableProviderFactory="true"
+      ecorePackage="graph.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="graph.ecore#//Colors">
+      <genEnumLiterals ecoreEnumLiteral="graph.ecore#//Colors/clean"/>
+      <genEnumLiterals ecoreEnumLiteral="graph.ecore#//Colors/touched"/>
+      <genEnumLiterals ecoreEnumLiteral="graph.ecore#//Colors/performed"/>
+    </genEnums>
+    <genDataTypes ecoreDataType="graph.ecore#//Color"/>
+    <genClasses ecoreClass="graph.ecore#//Vertex">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute graph.ecore#//Vertex/index"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute graph.ecore#//Vertex/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute graph.ecore#//Vertex/color"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference graph.ecore#//Vertex/edges"/>
+    </genClasses>
+    <genClasses ecoreClass="graph.ecore#//ColorRegistry">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute graph.ecore#//ColorRegistry/colors"/>
+      <genOperations ecoreOperation="graph.ecore#//ColorRegistry/init"/>
+      <genOperations ecoreOperation="graph.ecore#//ColorRegistry/dispose"/>
+    </genClasses>
+    <genClasses ecoreClass="graph.ecore#//Edge">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference graph.ecore#//Edge/parentVertex"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute graph.ecore#//Edge/weight"/>
+    </genClasses>
+    <genClasses ecoreClass="graph.ecore#//DiEdge"/>
+    <genClasses ecoreClass="graph.ecore#//GraphModel">
+      <genFeatures property="None" children="true" createChild="false" ecoreFeature="ecore:EReference graph.ecore#//GraphModel/vertexes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference graph.ecore#//GraphModel/colorRegistry"/>
+    </genClasses>
+    <genClasses ecoreClass="graph.ecore#//SingleEdge"/>
+  </genPackages>
+</genmodel:GenModel>

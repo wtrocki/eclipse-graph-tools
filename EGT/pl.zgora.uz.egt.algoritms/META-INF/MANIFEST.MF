@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Algoritms
+Bundle-SymbolicName: pl.zgora.uz.egt.algoritms;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: pl.zgora.uz.egt.algoritms.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ pl.zgora.uz.egt;bundle-version="1.0.0",
+ pl.zgora.uz.egt.core,
+ org.eclipse.emf.transaction;bundle-version="1.4.0",
+ org.eclipse.emf.ecore.edit;bundle-version="2.6.0",
+ org.eclipse.emf.ecore.editor;bundle-version="2.6.0",
+ org.eclipse.emf.ecore.xmi;bundle-version="2.5.0",
+ org.eclipse.emf.ecoretools;bundle-version="0.10.0"
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: J2SE-1.5

@@ -1,0 +1,172 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- Schema file written by PDE -->
+<schema targetNamespace="pl.zgora.uz.egt.core" xmlns="http://www.w3.org/2001/XMLSchema">
+<annotation>
+      <appinfo>
+         <meta.schema plugin="pl.zgora.uz.egt.core" id="pl.zgora.uz.egt.core.algoritm" name="Algoritm Application"/>
+      </appinfo>
+      <documentation>
+         Extension point used to add new algoritm to EGT.
+For more information see example
+      </documentation>
+   </annotation>
+
+   <element name="extension">
+      <annotation>
+         <appinfo>
+            <meta.element />
+         </appinfo>
+      </annotation>
+      <complexType>
+         <sequence minOccurs="1" maxOccurs="unbounded">
+            <element ref="algoritm"/>
+         </sequence>
+         <attribute name="point" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="id" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="name" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+               <appinfo>
+                  <meta.attribute translatable="true"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="algoritm">
+      <complexType>
+         <sequence>
+            <element ref="type"/>
+         </sequence>
+         <attribute name="name" type="string" use="required">
+            <annotation>
+               <documentation>
+                  Name of algoritm used in egt ui.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="class" type="string" use="required">
+            <annotation>
+               <documentation>
+                  Algorithm class that implements pl.zgora.uz.egt.core.algoritm.GraphAlgorithm
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="java" basedOn=":pl.zgora.uz.egt.core.algoritm.GraphAlgorithm"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="type">
+      <complexType>
+         <choice>
+            <element ref="tree"/>
+            <element ref="flow"/>
+         </choice>
+      </complexType>
+   </element>
+
+   <element name="tree" type="string">
+   </element>
+
+   <element name="flow" type="string">
+   </element>
+
+
+   <annotation>
+      <appinfo>
+         <meta.section type="examples"/>
+      </appinfo>
+      <documentation>
+         DFS algoritm example:
+
+public class DFS implements GraphAlgorithm {
+ private GraphModel model;
+ private GraphNotifier notifier;
+ private EList&lt;Vertex&gt; vertexes;
+ protected boolean[] isVertexVisited;
+
+ public DFS() {
+ }
+
+ public boolean run() {
+  prepareAlgoritm();
+
+  for (int i = 0; i &lt; vertexes.size(); i++) {
+   if (vertexes.get(i).getColor().equals(Colors.CLEAN)) {
+    vertexes.get(i).setColor(Colors.PERFORMED);
+    dfsRun(i);
+   }
+  }
+  return true;
+ }
+
+ private void prepareAlgoritm() {
+  vertexes = model.getVertexes();
+  for (int i = 0; i &lt; vertexes.size(); i++) {
+   vertexes.get(i).setColor(Colors.CLEAN);
+  }
+  isVertexVisited = new boolean[vertexes.size()];
+  for (int i = 0; i &lt; vertexes.size(); i++) {
+   isVertexVisited[i] = false;
+  }
+
+ }
+
+ public void dfsRun(int start) {
+  addVertex(start);
+  for (int i = 0; i &lt; vertexes.size(); i++) {
+   EList&lt;Edge&gt; edges = vertexes.get(start).getEdges();
+   for (Edge e : edges) {
+    int index = e.getParentVertex().getIndex();
+    if ((isVertexVisited[index] == false)) {
+     isVertexVisited[index] = true;
+     dfsRun(i);
+    }
+   }
+  }
+  postProcess(start);
+ }
+
+ protected void postProcess(int x) {
+  Vertex vertex2 = vertexes.get(x);
+  System.out.println(&quot;Wróć &quot; + vertex2.getName());
+  vertex2.setColor(Colors.TOUCHED);
+  notifier.notifyInputChanged(model);
+ }
+
+ private void addVertex(int position) {
+  Vertex vertex2 = vertexes.get(position);
+  System.out.println(&quot;Odwiedź &quot; + vertex2.getName());
+  vertex2.setColor(Colors.PERFORMED);
+  notifier.notifyInputChanged(model);
+ }
+
+ public void init(GraphModel model, GraphNotifier notifier) {
+  this.model = model;
+  this.notifier = notifier;
+
+ }
+      </documentation>
+   </annotation>
+
+
+
+
+</schema>

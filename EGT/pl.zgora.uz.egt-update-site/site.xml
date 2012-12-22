@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/pl.zgora.uz.egt.feature_1.0.0.201106232035.jar" id="pl.zgora.uz.egt.feature" version="1.0.0.201106232035">
+      <category name="EGT"/>
+   </feature>
+   <category-def name="EGT" label="EGT"/>
+</site>

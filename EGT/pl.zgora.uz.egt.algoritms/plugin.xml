@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="pl.zgora.uz.egt.core.algoritm">
+      <algoritm
+            class="pl.zgora.uz.egt.algoritms.DFS"
+            name="DFS">
+      </algoritm>
+      <algoritm
+            class="pl.zgora.uz.egt.algoritms.BFS"
+            name="BFS">
+      </algoritm>
+      <algoritm
+            class="pl.zgora.uz.egt.algoritms.Dijkstra"
+            name="Djikstra">
+      </algoritm>
+   </extension>
+</plugin>

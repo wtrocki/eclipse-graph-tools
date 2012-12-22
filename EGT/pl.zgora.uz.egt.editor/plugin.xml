@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ Autor: Wojciech Trocki (wtrocki@gmail.com)
+ Licensed under EPL License.
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <wizard
+            id="pl.zgora.uz.egt.presentation.EgtModelWizardID"
+            name="Egt editor"
+            class="pl.zgora.uz.egt.presentation.EgtModelWizard"
+            category="pl.zgora.uz.egt.diagram.category"
+            icon="icons/full/obj16/EgtModelFile.gif">
+         <description>%_UI_EgtModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <editor
+            id="pl.zgora.uz.egt.presentation.EgtEditorID"
+            name="%_UI_EgtEditor_label"
+            icon="icons/full/obj16/EgtModelFile.gif"
+            extensions="egt"
+            class="pl.zgora.uz.egt.presentation.EgtEditor"
+            contributorClass="pl.zgora.uz.egt.presentation.EgtActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

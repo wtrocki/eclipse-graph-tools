@@ -1,0 +1,8 @@
+#Sun Jun 19 00:54:44 CEST 2011
+eclipse.preferences.version=1
+gmf_dashboard/domainGenerationModel=platform\:/resource/pl.zgora.uz.egt/model/graph.genmodel
+gmf_dashboard/domainModel=platform\:/resource/pl.zgora.uz.egt/model/graph.ecore
+gmf_dashboard/generationModel=platform\:/resource/pl.zgora.uz.egt/model/graph.gmfgen
+gmf_dashboard/graphicalDefinitionModel=platform\:/resource/pl.zgora.uz.egt/model/graph.gmfgraph
+gmf_dashboard/mappingModel=platform\:/resource/pl.zgora.uz.egt/model/graph.gmfmap
+gmf_dashboard/toolingDefinitionModel=platform\:/resource/pl.zgora.uz.egt/model/graph.gmftool
